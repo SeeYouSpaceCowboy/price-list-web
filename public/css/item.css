@@ -1,0 +1,23 @@
+#items-container {
+  display: flex;
+  height: 100%;
+}
+
+#items-container > div {
+  flex: 33%;
+}
+
+#items-container > div > div {
+  height: 50em;
+  background-color: red;
+  overflow: auto;
+}
+
+#items-list {}
+
+.item {
+  padding: 1em;
+  background-color: #303033;
+  border-radius: 3px;
+  margin: 0 1em 1em 1em;
+}
