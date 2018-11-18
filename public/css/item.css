@@ -8,16 +8,16 @@
 }
 
 #items-container > div > div {
-  height: 50em;
-  background-color: red;
-  overflow: auto;
+  height: 93%;
+  overflow-y: auto;
 }
 
 #items-list {}
 
 .item {
   padding: 1em;
-  background-color: #303033;
-  border-radius: 3px;
+  background-color: #1a2538;
+  border: 1px solid #42475f;
+  border-radius: 5px;
   margin: 0 1em 1em 1em;
 }

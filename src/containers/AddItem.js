@@ -11,7 +11,7 @@ class AddItem extends Component {
     this.state = {
       name: "",
       price: "",
-      unitPrice: "",
+      unitAmount: "",
       unit: "",
       location: "",
       date: ""
@@ -19,6 +19,7 @@ class AddItem extends Component {
 
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
+    this.clearAll = this.clearAll.bind(this)
   }
 
   render() {
@@ -26,17 +27,17 @@ class AddItem extends Component {
       <div>
         <h2>Add an Item</h2>
         <form id="itemAddForm" action="index.html" method="post" onSubmit={ this.onSubmit }>
-          <input type="text" name="name" placeholder="Item name" onChange={ this.onChange }/><br/>
+          <input type="text" name="name" value={ this.state.name } placeholder="Item name" onChange={ this.onChange }/><br/>
 
-          <input type="text" name="price" placeholder="Price" onChange={ this.onChange }/><br/>
+          <input type="text" name="price" value={ this.state.price } placeholder="Price" onChange={ this.onChange }/><br/>
 
-          <input type="text" name="unitPrice" placeholder="Price per unit" onChange={ this.onChange }/><br/>
+          <input type="text" name="unitAmount" value={ this.state.unitAmount } placeholder="How many units?" onChange={ this.onChange }/><br/>
 
-          <input type="text" name="unit" placeholder="Unit" onChange={ this.onChange }/><br/>
+          <input type="text" name="unit" value={ this.state.unit } placeholder="Unit" onChange={ this.onChange }/><br/>
 
-          <input type="text" name="location" placeholder="Location" onChange={ this.onChange }/><br/>
+          <input type="text" name="location" value={ this.state.location } placeholder="Location" onChange={ this.onChange }/><br/>
 
-          <input type="text" name="date" placeholder="Date" onChange={ this.onChange }/><br/>
+          <input type="text" name="date" value={ this.state.date } placeholder="Date" onChange={ this.onChange }/><br/>
 
           <button type="submit">Submit</button>
         </form>
@@ -56,6 +57,17 @@ class AddItem extends Component {
     e.preventDefault()
 
     this.props.createItem(this.state)
+    this.clearAll()
+  }
+
+  clearAll() {
+    let state = this.state
+
+    for(var key in state) {
+      state[key] = ""
+    }
+
+    this.setState({ state })
   }
 }
 

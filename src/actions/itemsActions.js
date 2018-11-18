@@ -47,3 +47,23 @@ export const createItem = item => {
       .catch(err => err)
   }
 }
+
+export const deleteItem = id => {
+  let data = {
+    method: 'DELETE',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  }
+
+  return dispatch => {
+    fetch(`${ baseUrl }/items/${ id }`, data)
+      .then(response => response.json())
+      .then(item => dispatch({
+        type: 'DELETE_ITEM',
+        payload: item
+      }))
+      .catch(err => err)
+  }
+}
